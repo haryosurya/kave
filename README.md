@@ -4,7 +4,8 @@
 #Tutorials
 1. php artisan kave:install
 2. fill all the requirements
-3. enjoy
+3. php artisan config:clear
+4. enjoy
 
 #API features<br>
  // Authentication user<br>
