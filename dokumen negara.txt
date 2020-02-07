@@ -1,0 +1,160 @@
+tasty.test/api/register
+
+body : {
+  "first_name":"haryo",
+  "last_name":"su",
+  "email": "haryo@su.com",
+  "password":"haryo44",
+  "password_confirm":"haryo44",
+  "telephone":"234234234",
+  "terms":"1"
+}
+
+tasty.test/api/login
+body : 
+{
+    "email": "fap2109@gmail.com",
+    "password": "123456789"
+}
+
+
+tasty.test/api/address
+
+header : {
+    Autorization : your token
+}
+body : {
+
+  "address_id":"",
+  "address_1":"gamping",
+  "address_2":"malioboro",
+  "city":"bebas",
+  "state":"bebas",
+  "postcode":"jauh",
+  "country_id":"1"
+
+}
+tasty.test/api/postreviews
+
+header : {
+    Autorization : your token
+}
+
+body: {
+  "location_id" :"1",
+  "rating":{
+    "quality":"5",
+    "delivery":"5",
+    "service":"5"
+    
+  },
+  "sale_id" : "4",
+  "review_text":"mantab anjeng",
+  "sale_type":"orders"
+  
+}
+
+#redeeem point 
+static url : tasty.test/api/makeorder?usepoint=1
+method: POST
+header :token
+body:
+{
+  "coupon" : "",
+  "location" : 1,
+  "address" : 1,
+  "orders" : [
+    {
+      "id": 3,
+      "name": "ATA RICE",
+      "qty": "5",
+      "price": 12,
+      "options": [],
+      "comment": "nak nan ya",
+      "subtotal": 169.25
+  }, {
+      "id": 2,
+      "name": "SCOTCH EGG",
+      "qty": "1",
+      "price": 2,
+      "options": [],
+      "comment": "",
+      "subtotal": 7
+    }
+  ]
+}
+
+#make order 
+URL:tasty.test/api/makeorder
+method: POST
+Header:token
+body:
+{
+  "coupon" : "test",
+  "location" : 1,
+  "address" : 1,
+  "orders" : [
+    {
+      "id": 3,
+      "name": "ATA RICE",
+      "qty": "5",
+      "price": 12,
+      "options": [
+  
+          {
+              "id": 3,
+              "name": "Sides",
+              "values": [
+                  {
+                      "id": 6,
+                      "name": "Fish",
+                      "price": 4.95
+                  },
+                  {
+                      "id": 7,
+                      "name": "Beef",
+                      "price": 6.95
+                  },
+                  {
+                      "id": 5,
+                      "name": "Meat",
+                      "price": 4.95
+                  }
+              ]
+          },
+          {
+              "id": 4,
+              "name": "Size",
+              "values": {
+                  "9": {
+                      "id": 9,
+                      "name": "Large",
+                      "price": 5
+                  }
+              }
+          }
+      ],
+      "comment": "nak nan ya",
+      "subtotal": 169.25
+  }, {
+      "id": 2,
+      "name": "SCOTCH EGG",
+      "qty": "1",
+      "price": 2,
+      "options": [ {
+              "id": 2,
+              "name": "Size",
+              "values": [
+                  {
+                      "id": 4,
+                      "name": "Large",
+                      "price": 5
+                  }
+              ]
+          }
+      ],
+      "comment": "",
+      "subtotal": 7
+    }
+  ]
+}

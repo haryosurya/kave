@@ -1,0 +1,53 @@
+{
+  "name": "haryosurya/kave",
+  "description": "Kave",
+  "type": "project",
+  "authors": [{"name": "plurzm"}
+  ],
+  "license": "MIT",
+  
+  "require": {
+    "php": ">=7.1",
+    "ext-mbstring": "*",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "composer/installers": "~1.0",
+    "tastyigniter/flame": "~1.0",
+    "laravel/framework": "5.8.*",
+    "wikimedia/composer-merge-plugin": "^1.4",
+    "firebase/php-jwt": "^5.0"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "~1.7",
+    "phpunit/phpunit": "~7.5"
+  },
+  "replace": {
+    "kriswallsmith/assetic": "*"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ]
+  },
+  "extra": {
+    "merge-plugin": {
+      "include": [
+        "extensions/*/*/composer.json"
+      ],
+      "replace": false,
+      "recurse": true,
+      "merge-dev": false
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
