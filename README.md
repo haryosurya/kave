@@ -6,35 +6,35 @@
 2. fill all the requirements
 3. enjoy
 
-#API features
- // Authentication user
-        post=>login=>Admin\Controllers\Rest\UsersApi@login');
-        get=>decode=>Admin\Controllers\Rest\UsersApi@decode');
-        post=>register=>Admin\Controllers\Rest\UsersApi@register');
-        post=>address=>Admin\Controllers\Rest\UsersApi@setaddress');
-        get=>addresslist=>Admin\Controllers\Rest\UsersApi@getaddress');
- // get list front "menu, cat, banner"
-        get=>banners=>Admin\Controllers\Rest\BannersApi@getlist');
-        get=>menulist=>Admin\Controllers\Rest\MenusApi@getList');
-        get=>menupoint=>Admin\Controllers\Rest\MenusApi@menupoint');
-        get=>abc=>Admin\Controllers\Rest\MenusApi@abc');
-        get=>categorieses=>Admin\Controllers\Rest\CategoriesApi@getlist');
-        get=>mealtimes=>Admin\Controllers\Rest\MealtimesApi@getlist');
-        get=>customerlist=>Admin\Controllers\Rest\UsersApi@getlistcus');
-        get=>location=>Admin\Controllers\Rest\LocationsApi@getlist');
-        get=>pages=>Admin\Controllers\Rest\PagesApi@getlist');
- // Reservation
-        get=>reservationlist=>Admin\Controllers\Rest\ReservationApi@getlist');
-        post=>booking=>Admin\Controllers\Rest\ReservationApi@booking');
- // make order 
-        get=>orderList=>Admin\Controllers\Rest\OrdersApi@getList');
-        post=>makeorder=>Admin\Controllers\Rest\OrdersApi@postData');
- // Reviews
-        get=>reviews=>Admin\Controllers\Rest\ReviewsApi@getlist');
-        post=>postreviews=>Admin\Controllers\Rest\ReviewsApi@postreviews');
- //Menu Point
-        get=>menupoint=>Admin\Controllers\Rest\MenuPointApi@getlist');
-        get=>pointlist=>Admin\Controllers\Rest\MenuPointApi@pointlist');
-
-
-#Please Forgive ME if that isn't espect as you think
+#API features<br>
+ // Authentication user<br>
+        post=>login=>Admin\Controllers\Rest\UsersApi@login');<br>
+        get=>decode=>Admin\Controllers\Rest\UsersApi@decode');<br>
+        post=>register=>Admin\Controllers\Rest\UsersApi@register');<br>
+        post=>address=>Admin\Controllers\Rest\UsersApi@setaddress');<br>
+        get=>addresslist=>Admin\Controllers\Rest\UsersApi@getaddress');<br>
+ // get list front "menu, cat, banner"<br>
+        get=>banners=>Admin\Controllers\Rest\BannersApi@getlist');<br>
+        get=>menulist=>Admin\Controllers\Rest\MenusApi@getList');<br>
+        get=>menupoint=>Admin\Controllers\Rest\MenusApi@menupoint');<br>
+        get=>abc=>Admin\Controllers\Rest\MenusApi@abc');<br>
+        get=>categorieses=>Admin\Controllers\Rest\CategoriesApi@getlist');<br>
+        get=>mealtimes=>Admin\Controllers\Rest\MealtimesApi@getlist');<br>
+        get=>customerlist=>Admin\Controllers\Rest\UsersApi@getlistcus');<br>
+        get=>location=>Admin\Controllers\Rest\LocationsApi@getlist');<br>
+        get=>pages=>Admin\Controllers\Rest\PagesApi@getlist');<br>
+ // Reservation<br>
+        get=>reservationlist=>Admin\Controllers\Rest\ReservationApi@getlist');<br>
+        post=>booking=>Admin\Controllers\Rest\ReservationApi@booking');<br>
+ // make order <br>
+        get=>orderList=>Admin\Controllers\Rest\OrdersApi@getList');<br>
+        post=>makeorder=>Admin\Controllers\Rest\OrdersApi@postData');<br>
+ // Reviews<br>
+        get=>reviews=>Admin\Controllers\Rest\ReviewsApi@getlist');<br>
+        post=>postreviews=>Admin\Controllers\Rest\ReviewsApi@postreviews');<br>
+ //Menu Point<br>
+        get=>menupoint=>Admin\Controllers\Rest\MenuPointApi@getlist');<br>
+        get=>pointlist=>Admin\Controllers\Rest\MenuPointApi@pointlist');<br>
+<br>
+<br>
+#Please Forgive ME if that isn't espect as you think<br>
