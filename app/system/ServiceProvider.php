@@ -165,7 +165,7 @@ class ServiceProvider extends AppServiceProvider
                 'igniter.util' => Console\Commands\IgniterUtil::class,
                 'igniter.up' => Console\Commands\IgniterUp::class,
                 'igniter.down' => Console\Commands\IgniterDown::class,
-                'igniter.install' => Console\Commands\IgniterInstall::class,
+                'kave.install' => Console\Commands\KaveInstall::class,
                 // 'igniter.update' => Console\Commands\IgniterUpdate::class,
                 // 'extension.install' => Console\Commands\ExtensionInstall::class,
                 // 'extension.refresh' => Console\Commands\ExtensionRefresh::class,

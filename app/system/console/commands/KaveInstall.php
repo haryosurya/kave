@@ -12,7 +12,7 @@ use System\Classes\UpdateManager;
 use System\Database\Seeds\DatabaseSeeder;
 
 
-class IgniterInstall extends Command
+class KaveInstall extends Command
 {
     /**
      * The console command name.
