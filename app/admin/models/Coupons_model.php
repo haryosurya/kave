@@ -141,7 +141,7 @@ class Coupons_model extends Model
                 return !$now->between($start, $end);
         }
 
-        return FALSE;
+        return Response::make(['Kupon Anda Tidak Laku Laqi'], 200);
     }
 
     public function hasRestriction($orderType)

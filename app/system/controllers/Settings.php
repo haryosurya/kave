@@ -132,7 +132,7 @@ class Settings extends \Admin\Classes\AdminController
 
         $name = AdminAuth::getStaffName();
         $email = AdminAuth::getStaffEmail();
-        $text = 'This is a test email. If you\'ve received this, it means emails are working in TastyIgniter.';
+        $text = 'This is a test email. If you\'ve received this, it means emails are working in Kave.';
 
         try {
             Mail::raw($text, function (Message $message) use ($name, $email) {

@@ -49,7 +49,6 @@ class ReservationApi extends BaseApi
         $model->status_id = (setting('default_reservation_status'));
 
         $model->table_id = $data['table_id'];
-
         $model->guest_num = $data['guest_num'];
         $model->comment = $data['comment'];
         $model->reserve_date = $data['reserve_date'];

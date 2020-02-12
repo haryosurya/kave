@@ -87,19 +87,19 @@ class OrdersApi extends BaseApi
 
             $totalitem = 0;
 
-            $total = 0.00;
-            foreach($data['orders'] as $d){
-                $om = new Order_menus_model();
-                $om->order_id = $orders->order_id;
-                $om->menu_id = $d['id'];
-                $om->name = $d['name'];
-                $om->quantity = $d['qty'];
-                $om->price = $d['price'];
-                $om->subtotal = $d['qty'] * $d['price'];
+                $total = 0.00;
+                foreach($data['orders'] as $d){
+                        $om = new Order_menus_model();
+                        $om->order_id = $orders->order_id;
+                        $om->menu_id = $d['id'];
+                        $om->name = $d['name'];
+                        $om->quantity = $d['qty'];
+                        $om->price = $d['price'];
+                        $om->subtotal = $d['qty'] * $d['price'];
+                        $om->save();
 
-                $om->save();
                 $totalitem += $d['qty'];
-                $total += $d['subtotal'];
+                $total += $om->subtotal;
                 $ordermenu[] = $om;
                 foreach($d['options'] as $op){
 
@@ -121,7 +121,7 @@ class OrdersApi extends BaseApi
                
             }
            
-            $orders->order_total = $total ;
+            // $orders->order_total = $total ;
             $orders->total_items =$totalitem;
             $orders->save();
 
@@ -198,6 +198,22 @@ class OrdersApi extends BaseApi
                 else 
                     $totaldiskon = $total * str_replace('%', '', $disc) / 100.00;
             }
+
+
+
+            //save diskon price
+            $oto = new Order_totals_model();
+            $oto->order_id = $orders->order_id;
+            $oto->code = "totaldiskon";
+            $oto->title = "Sub Total";
+            $oto->value = $totaldiskon;
+            $oto->save();
+
+
+
+
+
+
             //save total 
             $oto = new Order_totals_model();
             $oto->order_id = $orders->order_id;
@@ -214,7 +230,8 @@ class OrdersApi extends BaseApi
                 'ordermenu' => $ordermenu,
                 'orderoption' => $orderoption,
                 'tax' => $tax,
-                'coupon' => $disc
+                'coupon' => $disc,
+                'order_total' => $oto->value
                 
             ];
 

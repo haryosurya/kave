@@ -32,6 +32,7 @@ $config['form']['general'] = [
                     'type' => 'text',
                     'span' => 'left',
                 ],
+                
                 'site_email' => [
                     'label' => 'lang:system::lang.settings.label_site_email',
                     'tab' => 'lang:system::lang.settings.text_tab_restaurant',
@@ -341,7 +342,7 @@ $config['form']['setup'] = [
                 'tax_percentage' => [
                     'label' => 'lang:system::lang.settings.label_tax_percentage',
                     'tab' => 'lang:system::lang.settings.text_tab_title_taxation',
-                    'type' => 'money',
+                    'type' => 'number',
                     'default' => 0,
                     'comment' => 'lang:system::lang.settings.help_tax_percentage',
                 ],
@@ -373,7 +374,7 @@ $config['form']['setup'] = [
                 'point_value' => [
                     'label' => 'lang:system::lang.settings.label_point_value',
                     'tab' => 'lang:system::lang.settings.text_tab_title_coupon',
-                    'type' => 'money',
+                    'type' => 'number',
                     'default' => 0,
                     'comment' => 'lang:system::lang.settings.help_point_value',
                 ],

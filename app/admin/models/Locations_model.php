@@ -303,10 +303,10 @@ class Locations_model extends AbstractLocation
             $locationModel->location_status = TRUE;
             $saved = $locationModel->fill($update)->save();
 
-            params()->set('default_location_id', $locationModel->getKey());
+            params()->set('default_location_id', $locationModel);
         }
 
-        return $saved ? $locationModel->getKey() : $saved;
+        return $saved ? $locationModel : $saved;
     }
 
     /**

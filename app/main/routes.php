@@ -1,4 +1,7 @@
 <?php
+
+// use Illuminate\Routing\Route;
+
 App::before(function () {
     /*
      * Register Main app routes
@@ -14,5 +17,6 @@ App::before(function () {
         // Route::any(config('system.assetsCombinerUri', '_assets').'/{asset}', 'System\Classes\Controller@combineAssets');
 
         Route::any('/', 'System\Classes\Controller@run');
+        // Route::get('/', 'App\Main\Controllers\FrontController@index');
     });
 });
