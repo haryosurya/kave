@@ -43,7 +43,7 @@ return [
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'port' => '3306',
-            'database' => 'tasty',
+            'database' => 'kave',
             'username' => 'root',
             'password' => 'password',
             'unix_socket' => '',

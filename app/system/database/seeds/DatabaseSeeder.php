@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    public static $siteUrl = 'http://localhost/';
+    public static $siteUrl = 'http://kave.test';
 
     public static $siteName = 'KAve';
 

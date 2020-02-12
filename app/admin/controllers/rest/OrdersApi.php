@@ -74,7 +74,7 @@ class OrdersApi extends BaseApi
             $orders->processed = 1;
             $orders->comment = "";
             $orders->status_id = 1;
-            $orders->payment = $usepoint == true ? "poin" : "cod";
+            $orders->payment = $usepoint == true ? "poin" : "cash";
             $orders->order_type = "delivery";
             $orders->location_id = $data['location'];
             $orders->order_time = date_create('now')->format('H:i:s');

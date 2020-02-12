@@ -99,25 +99,25 @@ $config['form']['toolbar'] = [
 ];
 
 $config['form']['fields'] = [
-    'payment' => [
-        'label' => 'lang:admin::lang.payments.label_payments',
-        'type' => 'select',
-        'options' => 'listGateways',
-        'context' => ['create'],
-        'placeholder' => 'lang:admin::lang.text_please_select',
-    ],
+    // 'payment' => [
+    //     'label' => 'lang:admin::lang.payments.label_payments',
+    //     'type' => 'select',
+    //     'options' => 'listGateways',
+    //     'context' => ['create'],
+    //     'placeholder' => 'lang:admin::lang.text_please_select',
+    // ],
     'name' => [
         'label' => 'lang:admin::lang.label_name',
         'type' => 'text',
         'span' => 'left',
     ],
-    'priority' => [
-        'label' => 'lang:admin::lang.payments.label_priority',
-        'type' => 'number',
-        'span' => 'right',
-        'cssClass' => 'flex-width',
-        'default' => 999,
-    ],
+    // 'priority' => [
+    //     'label' => 'lang:admin::lang.payments.label_priority',
+    //     'type' => 'number',
+    //     'span' => 'right',
+    //     'cssClass' => 'flex-width',
+    //     'default' => 999,
+    // ],
     'code' => [
         'label' => 'lang:admin::lang.payments.label_code',
         'type' => 'text',

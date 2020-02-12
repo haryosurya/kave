@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'kave',
+    'name' => 'KAve',
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => 'http://tasty.test/',
+    'url' => 'http://kave.test',
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => 'base64:UpBj1pMhlC/qQThE+MgpBmXtdYmOb/T2RrFt4qydWCE=',
+    'key' => 'base64:KOgTsUykKpIO7ycrjdXSolOaW1FHr+c4mck0iPrOkb8=',
 
     'cipher' => 'AES-256-CBC',
 

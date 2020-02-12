@@ -56,8 +56,7 @@ class Payments extends \Admin\Classes\AdminController
 
     public function index()
     {
-        if ($this->getUser()->hasPermission('Admin.Payments.Manage'))
-            Payments_model::syncAll();
+        if ($this->getUser()->hasPermission('Admin.Payments.Manage'));
 
         $this->asExtension('ListController')->index();
     }
@@ -92,26 +91,26 @@ class Payments extends \Admin\Classes\AdminController
         return $result;
     }
 
-    protected function getGateway($code)
-    {
-        if ($this->gateway !== null) {
-            return $this->gateway;
-        }
+    // protected function getGateway($code)
+    // {
+    //     if ($this->gateway !== null) {
+    //         return $this->gateway;
+    //     }
 
-        if (!$gateway = PaymentGateways::instance()->findGateway($code)) {
-            throw new Exception('Unable to find payment gateway with code '.$code);
-        }
+    //     if (!$gateway = PaymentGateways::instance()->findGateway($code)) {
+    //         throw new Exception('Unable to find payment gateway with code '.$code);
+    //     }
 
-        return $this->gateway = $gateway;
-    }
+    //     return $this->gateway = $gateway;
+    // }
 
-    public function formExtendModel($model)
-    {
-        if (!$model->exists)
-            $model->applyGatewayClass();
+    // public function formExtendModel($model)
+    // {
+    //     if (!$model->exists)
+    //         $model->applyGatewayClass();
 
-        return $model;
-    }
+    //     return $model;
+    // }
 
     public function formExtendFields($form)
     {
@@ -127,15 +126,15 @@ class Payments extends \Admin\Classes\AdminController
         }
     }
 
-    public function formBeforeCreate($model)
-    {
-        if (!strlen($code = post('Payment.payment')))
-            throw new ApplicationException('Invalid payment gateway code selected');
+    // public function formBeforeCreate($model)
+    // {
+    //     if (!strlen($code = post('Payment.payment')))
+    //         throw new ApplicationException('Invalid payment gateway code selected');
 
-        $paymentGateway = PaymentGateways::instance()->findGateway($code);
+    //     $paymentGateway = PaymentGateways::instance()->findGateway($code);
 
-        $model->class_name = $paymentGateway['class'];
-    }
+    //     $model->class_name = $paymentGateway['class'];
+    // }
 
     public function formValidate($model, $form)
     {
@@ -143,7 +142,7 @@ class Payments extends \Admin\Classes\AdminController
             ['payment', 'lang:admin::lang.payments.label_payments', 'sometimes|required|alpha_dash'],
             ['name', 'lang:admin::lang.label_name', 'required|min:2|max:128'],
             ['code', 'lang:admin::lang.payments.label_code', 'sometimes|required|alpha_dash|unique:payments,code'],
-            ['priority', 'lang:admin::lang.payments.label_priority', 'required|integer'],
+            // ['priority', 'lang:admin::lang.payments.label_priority', 'required|integer'],
             ['description', 'lang:admin::lang.label_description', 'required|max:255'],
             ['is_default', 'lang:admin::lang.payments.label_default', 'required|integer'],
             ['status', 'lang:admin::lang.label_status', 'required|integer'],

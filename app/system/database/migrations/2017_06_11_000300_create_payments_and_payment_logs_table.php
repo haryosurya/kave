@@ -21,7 +21,6 @@ class CreatePaymentsAndPaymentLogsTable extends Migration
             $table->text('data')->nullable();
             $table->boolean('status')->default(0);
             $table->boolean('is_default')->default(0);
-            $table->integer('priority')->default(0);
             $table->dateTime('date_added')->nullable();
             $table->dateTime('date_updated')->nullable();
         });

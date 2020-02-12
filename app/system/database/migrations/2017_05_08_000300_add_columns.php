@@ -34,15 +34,6 @@ class AddColumns extends Migration
             $table->integer('priority')->default(999);
         });
 
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('name')->change();
-            $table->integer('nest_left')->nullable();
-            $table->integer('nest_right')->nullable();
-            $table->string('permalink_slug')->nullable();
-        });
-
-       
-
         Schema::table('languages', function (Blueprint $table) {
             $table->integer('original_id')->nullable();
         });

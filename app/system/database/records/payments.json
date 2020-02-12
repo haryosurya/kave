@@ -1,0 +1,14 @@
+[
+    {
+    "name": "Cash",
+    "code": "cash",
+    "description": "pay using cash",
+    "status": 1
+  },
+  {
+    "name": "Poin",
+    "code": "poin",
+    "description": "pay using poin",
+    "status": 1
+  }
+]

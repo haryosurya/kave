@@ -1,11 +1,12 @@
 #Documentation
  This is a good boy's craft, make sure that you have to use it as good as me.
 
-#Tutorials
-1. php artisan kave:install
-2. fill all the requirements
-3. php artisan config:clear
-4. enjoy
+#steps
+1. composer install
+2. php artisan kave:install
+3. fill all the requirements
+4. php artisan config:clear
+5. enjoy
 
 #API features<br>
  // Authentication user<br>

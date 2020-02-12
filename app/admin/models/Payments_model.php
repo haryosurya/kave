@@ -13,10 +13,9 @@ use Model;
  */
 class Payments_model extends Model
 {
-    use Sortable;
     use Purgeable;
 
-    const SORT_ORDER = 'priority';
+    
 
     const CREATED_AT = 'date_added';
 
@@ -32,7 +31,7 @@ class Payments_model extends Model
      */
     protected $primaryKey = 'payment_id';
 
-    protected $fillable = ['name', 'code', 'class_name', 'description', 'data', 'status', 'is_default', 'priority'];
+    protected $fillable = ['name', 'code', 'description', 'data', 'status', 'is_default'];
 
     public $timestamps = TRUE;
 
@@ -40,7 +39,7 @@ class Payments_model extends Model
         'data' => 'serialize',
         'status' => 'boolean',
         'is_default' => 'boolean',
-        'priority' => 'integer',
+        // 'priority' => 'integer',
     ];
 
     protected $purgeable = ['payment'];
@@ -65,16 +64,16 @@ class Payments_model extends Model
         return self::isEnabled()->count() > 0;
     }
 
-    public function listGateways()
-    {
-        $result = [];
-        $this->gatewayManager = PaymentGateways::instance();
-        foreach ($this->gatewayManager->listGateways() as $code => $gateway) {
-            $result[$gateway['code']] = $gateway['name'];
-        }
+        // public function listGateways()
+        // {
+        //     $result = [];
+        //     $this->gatewayManager = PaymentGateways::instance();
+        //     foreach ($this->gatewayManager->listGateways() as $code => $gateway) {
+        //         $result[$gateway['code']] = $gateway['name'];
+        //     }
 
-        return $result;
-    }
+        //     return $result;
+        // }
 
     //
     // Accessors & Mutators
@@ -94,13 +93,13 @@ class Payments_model extends Model
     // Events
     //
 
-    protected function afterFetch()
-    {
-        $this->applyGatewayClass();
+    // protected function afterFetch()
+    // {
+    //     // $this->applyGatewayClass();
 
-        if (is_array($this->data))
-            $this->attributes = array_merge($this->data, $this->attributes);
-    }
+    //     if (is_array($this->data))
+    //         $this->attributes = array_merge($this->data, $this->attributes);
+    // }
 
     protected function beforeSave()
     {
@@ -143,38 +142,38 @@ class Payments_model extends Model
      *
      * @return boolean
      */
-    public function applyGatewayClass($class = null)
-    {
-        if (is_null($class))
-            $class = $this->class_name;
+    // public function applyGatewayClass($class = null)
+    // {
+    //     if (is_null($class))
+    //         $class = $this->class_name;
 
-        if (!class_exists($class)) {
-            $class = null;
-        }
+    //     if (!class_exists($class)) {
+    //         $class = null;
+    //     }
 
-        if ($class AND !$this->isClassExtendedWith($class)) {
-            $this->extendClassWith($class);
-        }
+    //     if ($class AND !$this->isClassExtendedWith($class)) {
+    //         $this->extendClassWith($class);
+    //     }
 
-        $this->class_name = $class;
+    //     $this->class_name = $class;
 
-        return TRUE;
-    }
+    //     return TRUE;
+    // }
 
-    public function renderPaymentForm($controller)
-    {
-        $this->beforeRenderPaymentForm($this, $controller);
+    // public function renderPaymentForm($controller)
+    // {
+    //     $this->beforeRenderPaymentForm($this, $controller);
 
-        $paymentMethodFile = strtolower(class_basename($this->class_name));
-        $partialName = 'payregister/'.$paymentMethodFile;
+    //     $paymentMethodFile = strtolower(class_basename($this->class_name));
+    //     $partialName = 'payregister/'.$paymentMethodFile;
 
-        return $controller->renderPartial($partialName, ['paymentMethod' => $this]);
-    }
+    //     return $controller->renderPartial($partialName, ['paymentMethod' => $this]);
+    // }
 
-    public function getGatewayClass()
-    {
-        return $this->class_name;
-    }
+    // public function getGatewayClass()
+    // {
+    //     return $this->class_name;
+    // }
 
     //
     // Helpers
@@ -185,32 +184,32 @@ class Payments_model extends Model
      *
      * @return array
      */
-    public static function listPayments()
-    {
-        return self::isEnabled()->get()->filter(function ($model) {
-            return strlen($model->class_name) > 0;
-        });
-    }
+    // public static function listPayments()
+    // {
+    //     return self::isEnabled()->get()->filter(function ($model) {
+    //         return strlen($model->class_name) > 0;
+    //     });
+    // }
 
-    public static function syncAll()
-    {
-        $payments = self::pluck('code')->all();
+    // public static function syncAll()
+    // {
+    //     $payments = self::pluck('code')->all();
 
-        $gatewayManager = PaymentGateways::instance();
-        foreach ($gatewayManager->listGateways() as $code => $gateway) {
-            if (in_array($code, $payments)) continue;
+    //     $gatewayManager = PaymentGateways::instance();
+    //     foreach ($gatewayManager->listGateways() as $code => $gateway) {
+    //         if (in_array($code, $payments)) continue;
 
-            $model = self::make([
-                'code' => $code,
-                'name' => Lang::get($gateway['name']),
-                'description' => Lang::get($gateway['description']),
-                'class_name' => $gateway['class'],
-            ]);
+    //         $model = self::make([
+    //             'code' => $code,
+    //             'name' => Lang::get($gateway['name']),
+    //             'description' => Lang::get($gateway['description']),
+    //             'class_name' => $gateway['class'],
+    //         ]);
 
-            $model->applyGatewayClass();
-            $model->save();
-        }
+    //         $model->applyGatewayClass();
+    //         $model->save();
+    //     }
 
-        // PaymentGateways::createPartials();       
-    }
+    //     // PaymentGateways::createPartials();       
+    // }
 }
